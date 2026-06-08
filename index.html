@@ -21,95 +21,210 @@
                         }
                     },
                     animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float-slow': 'float 8s ease-in-out infinite',
+                        'float-delayed': 'float-delayed 11s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
                     }
                 }
             }
         }
     </script>
-    <!-- Custom style overrides for glass effects and custom scrollbars -->
     <style>
+        /* Base Glass Effects */
         .glass-panel {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(10, 15, 30, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
         }
+        
         .glass-button {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-style: preserve-3d;
         }
-        .glass-button:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+
+        /* 3D Depth Classes */
+        .perspective-1000 {
+            perspective: 1000px;
         }
+        .preserve-3d {
+            transform-style: preserve-3d;
+        }
+        .translate-z-10 {
+            transform: translateZ(10px);
+        }
+        .translate-z-20 {
+            transform: translateZ(20px);
+        }
+        .translate-z-30 {
+            transform: translateZ(30px);
+        }
+
+        /* Tilt Element Transition Smoothness */
+        .tilt-element {
+            transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s ease;
+            will-change: transform;
+        }
+
         /* Custom Glowing effects */
         .glow-indigo {
-            box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.35);
+        }
+        .glow-indigo:hover {
+            box-shadow: 0 0 50px -5px rgba(99, 102, 241, 0.5);
         }
         .glow-emerald {
-            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.4);
+            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.35);
+        }
+        .glow-emerald:hover {
+            box-shadow: 0 0 50px -5px rgba(16, 185, 129, 0.5);
         }
         .glow-rose {
-            box-shadow: 0 0 40px -10px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 0 40px -10px rgba(244, 63, 94, 0.35);
         }
-        /* Image filters */
+        .glow-rose:hover {
+            box-shadow: 0 0 50px -5px rgba(244, 63, 94, 0.5);
+        }
+
+        /* Floating Animation Keyframes */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+        @keyframes float-delayed {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(15px) rotate(-4deg); }
+        }
+
+        /* Image Filters */
         .filter-vivid {
-            filter: contrast(1.1) saturate(1.15) brightness(1.02);
+            filter: contrast(1.08) saturate(1.1) brightness(1.02);
         }
         .filter-mono {
-            filter: grayscale(1) contrast(1.2);
+            filter: grayscale(1) contrast(1.25);
         }
         .filter-duotone {
-            filter: grayscale(0.9) sepia(0.2) hue-rotate(200deg) saturate(1.8) contrast(1.1);
+            filter: grayscale(0.9) sepia(0.15) hue-rotate(200deg) saturate(1.7) contrast(1.15);
+        }
+
+        /* Staggered Entrance Animations */
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Left/Right social block entrance classes */
+        .animate-slide-left {
+            opacity: 0;
+            animation: slideInFromLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .animate-slide-right {
+            opacity: 0;
+            animation: slideInFromRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Flying Paper Plane Keyframe */
+        @keyframes flyAway {
+            0% {
+                transform: translate(0, 0) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            30% {
+                transform: translate(-20px, 10px) scale(0.9) rotate(-10deg);
+            }
+            100% {
+                transform: translate(350px, -200px) scale(0.4) rotate(15deg);
+                opacity: 0;
+            }
+        }
+        .plane-fly {
+            animation: flyAway 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden relative selection:bg-indigo-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden relative selection:bg-indigo-500 selection:text-white pb-6">
+
+    <!-- 3D Geometric Floating background shapes -->
+    <div class="absolute top-[15%] left-[5%] w-24 h-24 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-2xl animate-float-slow blur-sm pointer-events-none border border-indigo-500/10"></div>
+    <div class="absolute bottom-[20%] right-[5%] w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full animate-float-delayed blur-sm pointer-events-none border border-purple-500/10"></div>
+    <div class="absolute top-[45%] right-[15%] w-16 h-16 bg-gradient-to-tr from-rose-500/5 to-transparent rounded-lg animate-spin-slow blur-[2px] pointer-events-none border border-rose-500/10"></div>
 
     <!-- Glowing Background blobs -->
     <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-900/20 blur-[120px] pointer-events-none animate-pulse-slow"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-violet-950/30 blur-[120px] pointer-events-none"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-violet-950/20 blur-[120px] pointer-events-none animate-pulse-slow" style="animation-delay: 2s;"></div>
 
     <!-- Header / Navigation -->
-    <header class="w-full max-w-6xl mx-auto px-6 py-5 flex justify-between items-center z-10">
+    <header class="w-full max-w-6xl mx-auto px-6 py-5 flex justify-between items-center z-10 animate-fade-in-up" style="animation-delay: 0.1s;">
         <div class="flex items-center gap-2">
-            <span class="h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Available for collaboration</span>
+            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Available for collaboration</span>
         </div>
         <!-- Theme accent picker -->
         <div class="flex items-center gap-3 glass-panel px-3 py-1.5 rounded-full text-xs">
-            <span class="text-slate-400">Accent:</span>
+            <span class="text-slate-400 text-[10px] font-bold tracking-wide uppercase">Accent:</span>
             <div class="flex gap-1.5">
-                <button onclick="setAccent('indigo')" class="w-3.5 h-3.5 rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-slate-950 transition-all focus:outline-none" id="btn-accent-indigo"></button>
-                <button onclick="setAccent('emerald')" class="w-3.5 h-3.5 rounded-full bg-emerald-500 ring-offset-slate-950 transition-all focus:outline-none" id="btn-accent-emerald"></button>
-                <button onclick="setAccent('rose')" class="w-3.5 h-3.5 rounded-full bg-rose-500 ring-offset-slate-950 transition-all focus:outline-none" id="btn-accent-rose"></button>
+                <button onclick="setAccent('indigo')" class="w-3.5 h-3.5 rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-slate-950 transition-all focus:outline-none cursor-pointer" id="btn-accent-indigo" title="Indigo Theme"></button>
+                <button onclick="setAccent('emerald')" class="w-3.5 h-3.5 rounded-full bg-emerald-500 ring-offset-slate-950 transition-all focus:outline-none cursor-pointer" id="btn-accent-emerald" title="Emerald Theme"></button>
+                <button onclick="setAccent('rose')" class="w-3.5 h-3.5 rounded-full bg-rose-500 ring-offset-slate-950 transition-all focus:outline-none cursor-pointer" id="btn-accent-rose" title="Rose Theme"></button>
             </div>
         </div>
     </header>
 
     <!-- Main Content Area -->
-    <main class="w-full max-w-5xl mx-auto px-4 md:px-6 py-6 flex-grow flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 z-10">
+    <main class="w-full max-w-5xl mx-auto px-4 md:px-6 py-4 flex-grow flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 z-10">
         
-        <!-- Left Side: Profile Card -->
-        <section class="w-full lg:w-5/12 flex flex-col items-center">
-            <div class="w-full glass-panel rounded-3xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden glow-indigo transition-all duration-500" id="profile-card">
+        <!-- Left Side: Profile Card (with interactive 3D Perspective) -->
+        <section class="w-full lg:w-5/12 flex flex-col items-center animate-fade-in-up" style="animation-delay: 0.2s;">
+            <div class="w-full glass-panel rounded-3xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden glow-indigo transition-all duration-500 tilt-element preserve-3d" id="profile-card">
                 
-                <!-- Background visual mesh -->
-                <div class="absolute inset-0 bg-gradient-to-b from-indigo-500/5 to-transparent pointer-events-none"></div>
+                <!-- Background visual grid -->
+                <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(99,102,241,0.12),rgba(255,255,255,0))] pointer-events-none"></div>
                 
-                <!-- Profile Image Container with Glow & Filters -->
-                <div class="relative group mb-6">
-                    <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-75 blur-sm group-hover:opacity-100 transition duration-500" id="image-glow"></div>
-                    <div class="relative w-52 h-64 md:w-56 md:h-72 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800">
+                <!-- Profile Image Container with 3D Pop-out Glow & Filters -->
+                <div class="relative group mb-6 preserve-3d translate-z-30">
+                    <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-60 blur-md group-hover:opacity-100 transition duration-500" id="image-glow"></div>
+                    <div class="relative w-52 h-64 md:w-56 md:h-72 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800/80">
                         <img 
                             id="profile-img"
-                            src="image_ffe986.jpg" 
+                            src="https://drive.google.com/thumbnail?id=1VPo204IdbLOZwpcQ5RYecgPjl1n_C4hz&sz=w1000" 
                             alt="Shuvam Gautam" 
                             class="w-full h-full object-cover object-center filter-vivid transition-all duration-300 transform group-hover:scale-105"
-                            onerror="this.src='https://drive.google.com/thumbnail?id=1VPo204IdbLOZwpcQ5RYecgPjl1n_C4hz&sz=w1000'"
+                            onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600'"
                         >
                         <!-- Floating Image Style Controls -->
                         <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded-full flex gap-2 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -121,18 +236,18 @@
                 </div>
 
                 <!-- Text Info -->
-                <h1 class="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400 mb-1">
+                <h1 class="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400 mb-1 translate-z-20">
                     Shuvam Gautam
                 </h1>
-                <p class="text-indigo-400 font-medium mb-4 text-sm md:text-base tracking-wide" id="profile-role">
+                <p class="text-indigo-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10" id="profile-role">
                     Digital Creator
                 </p>
-                <p class="text-slate-400 text-sm max-w-sm leading-relaxed mb-6">
+                <p class="text-slate-400 text-sm max-w-sm leading-relaxed mb-6 translate-z-10">
                     Welcome to my network gateway. Feel free to explore my profiles below or reach out directly for collaborations, inquiries, or just to say hello!
                 </p>
 
                 <!-- Nepal Local Time Widget -->
-                <div class="w-full border-t border-slate-800/80 pt-5 flex justify-between items-center text-xs text-slate-500">
+                <div class="w-full border-t border-slate-800/80 pt-5 flex justify-between items-center text-xs text-slate-500 translate-z-10">
                     <div class="flex items-center gap-1.5">
                         <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                         <span>Nepal Standard Time</span>
@@ -145,108 +260,149 @@
             </div>
         </section>
 
-        <!-- Right Side: Links & Contact Form -->
+        <!-- Right Side: Links, Projects & Contact Form -->
         <section class="w-full lg:w-7/12 flex flex-col gap-6">
             
-            <!-- Grid of Social Channels -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-3">
+                <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase flex items-center gap-2 px-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                    Find me on
+                </h2>
                 
-                <!-- Facebook Card -->
-                <a href="https://www.facebook.com/shuvamgautam2066" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group">
-                    <div class="p-3 rounded-xl bg-blue-600/10 text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">Facebook</h2>
-                        <p class="text-xs text-slate-500">shuvamgautam2066</p>
-                    </div>
-                    <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-
-                <!-- Instagram Card -->
-                <a href="https://www.instagram.com/shuvamgautamm" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group">
-                    <div class="p-3 rounded-xl bg-pink-600/10 text-pink-500 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-600 group-hover:to-purple-600 group-hover:text-white transition duration-300">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">Instagram</h2>
-                        <p class="text-xs text-slate-500">@shuvamgautamm</p>
-                    </div>
-                    <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-
-                <!-- TikTok Card -->
-                <a href="https://www.tiktok.com/@shuvamgautammm" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group">
-                    <div class="p-3 rounded-xl bg-slate-800 text-slate-100 group-hover:bg-slate-50 group-hover:text-slate-950 transition duration-300">
-                        <!-- TikTok SVG -->
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.63 4.18 1.13 1.2 2.69 1.93 4.31 2.05v3.74c-1.77-.14-3.48-.89-4.78-2.12-.13-.12-.25-.26-.37-.4-.06.78-.14 1.56-.14 2.34-.04 4.09-.92 8.35-4.57 10.42-2.58 1.5-6.05 1.55-8.57-.1-2.99-1.87-4.14-5.91-2.61-9.17 1.14-2.54 3.73-4.32 6.54-4.39 1.15-.05 2.3.17 3.36.64V.02zm-1.89 9.94c-1.57-.03-3.15.93-3.75 2.39-.7 1.65-.13 3.75 1.34 4.67.92.59 2.08.68 3.08.23 1.25-.53 2.02-1.9 1.95-3.26-.01-1.3-.01-2.6 0-3.9-.87-.04-1.74-.08-2.62-.13z"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">TikTok</h2>
-                        <p class="text-xs text-slate-500">@shuvamgautammm</p>
-                    </div>
-                    <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-
-                <!-- Copy Email Action -->
-                <div onclick="copyEmailToClipboard()" class="glass-button rounded-2xl p-5 flex items-center gap-4 group cursor-pointer relative overflow-hidden" id="email-copy-card">
-                    <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition duration-300" id="email-icon-container">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                    </div>
-                    <div class="flex-grow min-w-0">
-                        <div class="flex items-center gap-2">
-                            <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">E-mail</h2>
-                            <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono group-hover:bg-slate-700 transition" id="copy-badge">Copy</span>
+                <!-- Grid of Social Channels with Staggered Left/Right Animations and Hover Sliders -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <!-- Facebook Card (Slides from Left) -->
+                    <a href="https://www.facebook.com/shuvamgautam2066" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group tilt-element animate-slide-left hover:translate-x-1.5 transition-transform" style="animation-delay: 0.1s;">
+                        <div class="p-3 rounded-xl bg-blue-600/10 text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition duration-300 translate-z-10">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                            </svg>
                         </div>
-                        <p class="text-xs text-slate-500 truncate">connect@shuvam-gautam.com.np</p>
-                    </div>
-                    <!-- Direct mailto click link icon -->
-                    <a href="mailto:connect@shuvam-gautam.com.np" class="p-1 rounded hover:bg-white/10 text-slate-500 hover:text-slate-300 transition" title="Send email directly" onclick="event.stopPropagation()">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        <div class="translate-z-20">
+                            <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">Facebook</h2>
+                            <p class="text-xs text-slate-500">shuvamgautam2066</p>
+                        </div>
+                        <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1 translate-z-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                     </a>
-                </div>
 
+                    <!-- Instagram Card (Slides from Right) -->
+                    <a href="https://www.instagram.com/shuvamgautamm" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group tilt-element animate-slide-right hover:-translate-x-1.5 transition-transform" style="animation-delay: 0.2s;">
+                        <div class="p-3 rounded-xl bg-pink-600/10 text-pink-500 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-600 group-hover:to-purple-600 group-hover:text-white transition duration-300 translate-z-10">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </div>
+                        <div class="translate-z-20">
+                            <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">Instagram</h2>
+                            <p class="text-xs text-slate-500">@shuvamgautamm</p>
+                        </div>
+                        <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1 translate-z-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+
+                    <!-- TikTok Card (Slides from Left) -->
+                    <a href="https://www.tiktok.com/@shuvamgautammm" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group tilt-element animate-slide-left hover:translate-x-1.5 transition-transform" style="animation-delay: 0.3s;">
+                        <div class="p-3 rounded-xl bg-slate-800 text-slate-100 group-hover:bg-slate-50 group-hover:text-slate-950 transition duration-300 translate-z-10">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.63 4.18 1.13 1.2 2.69 1.93 4.31 2.05v3.74c-1.77-.14-3.48-.89-4.78-2.12-.13-.12-.25-.26-.37-.4-.06.78-.14 1.56-.14 2.34-.04 4.09-.92 8.35-4.57 10.42-2.58 1.5-6.05 1.55-8.57-.1-2.99-1.87-4.14-5.91-2.61-9.17 1.14-2.54 3.73-4.32 6.54-4.39 1.15-.05 2.3.17 3.36.64V.02zm-1.89 9.94c-1.57-.03-3.15.93-3.75 2.39-.7 1.65-.13 3.75 1.34 4.67.92.59 2.08.68 3.08.23 1.25-.53 2.02-1.9 1.95-3.26-.01-1.3-.01-2.6 0-3.9-.87-.04-1.74-.08-2.62-.13z"/>
+                            </svg>
+                        </div>
+                        <div class="translate-z-20">
+                            <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">TikTok</h2>
+                            <p class="text-xs text-slate-500">@shuvamgautammm</p>
+                        </div>
+                        <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1 translate-z-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+                    </a>
+
+                    <!-- Copy Email Action (Slides from Right) -->
+                    <div onclick="copyEmailToClipboard()" class="glass-button rounded-2xl p-5 flex items-center gap-4 group cursor-pointer relative overflow-hidden tilt-element animate-slide-right hover:-translate-x-1.5 transition-transform" id="email-copy-card" style="animation-delay: 0.4s;">
+                        <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition duration-300 translate-z-10" id="email-icon-container">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        </div>
+                        <div class="flex-grow min-w-0 translate-z-20">
+                            <div class="flex items-center gap-2">
+                                <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">E-mail</h2>
+                                <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono group-hover:bg-slate-700 transition" id="copy-badge">Copy</span>
+                            </div>
+                            <p class="text-xs text-slate-500 truncate">admin@shuvam-gautam.com.np</p>
+                        </div>
+                        <!-- Direct mailto click link icon -->
+                        <a href="mailto:admin@shuvam-gautam.com.np" class="p-1 rounded hover:bg-white/10 text-slate-500 hover:text-slate-300 transition translate-z-10" title="Send email directly" onclick="event.stopPropagation()">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+
+                </div>
             </div>
 
-            <!-- Featured Project: Helpar Blog -->
-            <a href="https://hpa.com.np" target="_blank" rel="noopener noreferrer" class="glass-button rounded-3xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group relative overflow-hidden">
-                <!-- Hover Glow background overlay -->
-                <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                
-                <div class="p-4 rounded-2xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition duration-300 shrink-0">
-                    <!-- Book / Writing Icon SVG -->
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
+            <!-- Projects Showcase Section -->
+            <div class="flex flex-col gap-4">
+                <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase flex items-center gap-2 px-1 animate-fade-in-up" style="animation-delay: 0.45s;">
+                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                    My Projects
+                </h2>
+
+                <div class="flex flex-col gap-4">
+                    <!-- Project 1: AI Daju -->
+                    <a href="https://ai.shuvam-gautam.com.np/" target="_blank" rel="noopener noreferrer" class="glass-button rounded-3xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group relative overflow-hidden tilt-element animate-fade-in-up" style="animation-delay: 0.5s;">
+                        <!-- Hover Glow background overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        
+                        <div class="p-4 rounded-2xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition duration-300 shrink-0 translate-z-10">
+                            <!-- Futuristic AI/Sparkles Icon SVG -->
+                            <svg class="w-8 h-8 animate-pulse-slow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l-.813-5.096L3 15l5.096-.813L9 9l.813 5.096L15 15l-5.187.904zM18 5.25L17.25 7l-.75-1.75L14.75 4.5l1.75-.75.75-1.75.75 1.75 1.75.75-1.75.75zM22 10.75l-.75 1.75-.75-1.75L18.75 10l1.75-.75.75-1.75.75 1.75 1.75.75-1.75.75z" />
+                            </svg>
+                        </div>
+                        
+                        <div class="flex-grow translate-z-20">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge">Friendly AI Assistant</span>
+                                <span class="text-[10px] bg-slate-800 text-slate-400 font-mono px-2 py-0.5 rounded-full">ai.shuvam-gautam.com.np</span>
+                            </div>
+                            <h2 class="text-xl font-bold text-slate-100 group-hover:text-white transition">AI Daju</h2>
+                            <p class="text-xs text-slate-400 leading-relaxed mt-1">Your helpful, local AI companion built to answer questions, explain complex homework topics, brainstorm ideas, and chat anytime!</p>
+                        </div>
+                        
+                        <div class="self-end sm:self-center ml-auto text-slate-500 group-hover:text-slate-200 transition translate-z-10">
+                            <svg class="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </div>
+                    </a>
+
+                    <!-- Project 2: Helpar Blog -->
+                    <a href="https://hpa.com.np" target="_blank" rel="noopener noreferrer" class="glass-button rounded-3xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group relative overflow-hidden tilt-element animate-fade-in-up" style="animation-delay: 0.55s;">
+                        <!-- Hover Glow background overlay -->
+                        <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        
+                        <div class="p-4 rounded-2xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition duration-300 shrink-0 translate-z-10">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                            </svg>
+                        </div>
+                        
+                        <div class="flex-grow translate-z-20">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge">Personal Blog</span>
+                                <span class="text-[10px] bg-slate-800 text-slate-400 font-mono px-2 py-0.5 rounded-full">hpa.com.np</span>
+                            </div>
+                            <h2 class="text-xl font-bold text-slate-100 group-hover:text-white transition">Helpar</h2>
+                            <p class="text-xs text-slate-400 leading-relaxed mt-1">Explore my personal blog project where I write articles, share creative ideas, and publish interesting guides about tech and design.</p>
+                        </div>
+                        
+                        <div class="self-end sm:self-center ml-auto text-slate-500 group-hover:text-slate-200 transition translate-z-10">
+                            <svg class="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                        </div>
+                    </a>
                 </div>
-                
-                <div class="flex-grow">
-                    <div class="flex items-center gap-2 mb-1">
-                        <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full" id="project-badge">Featured Project</span>
-                        <span class="text-[10px] bg-slate-800 text-slate-400 font-mono px-2 py-0.5 rounded-full">hpa.com.np</span>
-                    </div>
-                    <h2 class="text-xl font-bold text-slate-100 group-hover:text-white transition">Helpar</h2>
-                    <p class="text-xs text-slate-400 leading-relaxed mt-1">Explore my personal blog project where I write articles, share creative ideas, and publish interesting guides.</p>
-                </div>
-                
-                <div class="self-end sm:self-center ml-auto text-slate-500 group-hover:text-slate-200 transition">
-                    <svg class="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                </div>
-            </a>
+            </div>
 
             <!-- Modern Message / Reach Out Form -->
-            <div class="glass-panel rounded-3xl p-6 md:p-8 relative">
+            <div class="glass-panel rounded-3xl p-6 md:p-8 relative tilt-element animate-fade-in-up" style="animation-delay: 0.6s;">
                 <h3 class="text-xl font-bold mb-1 text-slate-100 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-indigo-500" id="form-header-dot"></span>
+                    <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping-slow" id="form-header-dot"></span>
                     Send a Message
                 </h3>
-                <p class="text-xs text-slate-400 mb-6">Have an idea or a project? Drop your message below and I will get back to you directly.</p>
+                <p class="text-xs text-slate-400 mb-6">Type your message below to send it securely directly to Shuvam's inbox.</p>
 
                 <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -257,7 +413,7 @@
                                 required 
                                 id="form-name"
                                 placeholder="John Doe" 
-                                class="w-full bg-slate-900/50 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition"
+                                class="w-full bg-slate-900/50 border border-slate-800/80 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition duration-300"
                             >
                         </div>
                         <div>
@@ -267,7 +423,7 @@
                                 required 
                                 id="form-email"
                                 placeholder="john@example.com" 
-                                class="w-full bg-slate-900/50 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition"
+                                class="w-full bg-slate-900/50 border border-slate-800/80 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition duration-300"
                             >
                         </div>
                     </div>
@@ -278,30 +434,44 @@
                             required 
                             id="form-message"
                             placeholder="Hey Shuvam, let's collaborate on..." 
-                            class="w-full bg-slate-900/50 border border-slate-800 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition resize-none"
+                            class="w-full bg-slate-900/50 border border-slate-800/80 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition duration-300 resize-none"
                         ></textarea>
                     </div>
                     
                     <button 
                         type="submit" 
                         id="form-submit-btn"
-                        class="w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-indigo-600 hover:bg-indigo-500 text-white transition duration-300 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 flex items-center justify-center gap-2 cursor-pointer"
+                        class="w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-indigo-600 hover:bg-indigo-500 text-white transition duration-300 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 flex items-center justify-center gap-2 cursor-pointer relative overflow-hidden"
                     >
-                        <span>Send Message</span>
-                        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        <span id="btn-text" class="flex items-center gap-2">
+                            <span>Send Message</span>
+                            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </span>
+                        <span id="btn-spinner" class="hidden flex items-center gap-2">
+                            <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span>Sending Direct...</span>
+                        </span>
                     </button>
                 </form>
 
-                <!-- Toast Success Box -->
+                <!-- Toast Success Box with Interactive Animations -->
                 <div id="success-toast" class="hidden absolute inset-0 bg-slate-950/95 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center text-center p-6 transition duration-300">
-                    <div class="w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4 border border-emerald-500/20">
-                        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    <div class="relative w-24 h-24 flex items-center justify-center mb-4">
+                        <!-- Plane Graphics -->
+                        <svg id="paper-plane" class="w-12 h-12 text-indigo-400 absolute" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                        </svg>
+                        <div id="success-ring" class="hidden w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20 scale-0 transition-transform duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        </div>
                     </div>
-                    <h4 class="text-lg font-bold text-white mb-1">Message Transmitted!</h4>
-                    <p class="text-xs text-slate-400 max-w-xs mb-6">Thanks! A simulated copy has also been formatted for your email client.</p>
+                    <h4 class="text-lg font-bold text-white mb-1" id="toast-title">Preparing Message...</h4>
+                    <p class="text-xs text-slate-400 max-w-xs mb-6" id="toast-desc">Encrypting secure connection parameters.</p>
                     <div class="flex gap-3">
-                        <button onclick="resetContactForm()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold transition">Send Another</button>
-                        <a id="mailto-direct" href="#" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-xs font-semibold transition">Open Mail Client</a>
+                        <button onclick="resetContactForm()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold transition cursor-pointer">Back</button>
                     </div>
                 </div>
 
@@ -311,8 +481,8 @@
 
     </main>
 
-    <!-- Footer (Shortened & Simplified) -->
-    <footer class="w-full max-w-5xl mx-auto px-6 py-6 border-t border-slate-900/60 flex items-center justify-between text-xs text-slate-500 z-10">
+    <!-- Footer -->
+    <footer class="w-full max-w-5xl mx-auto px-6 py-6 border-t border-slate-900/60 flex items-center justify-between text-xs text-slate-500 z-10 animate-fade-in-up" style="animation-delay: 0.7s;">
         <div>&copy; 2026 Shuvam Gautam</div>
         <div class="flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/80"></span>
@@ -324,9 +494,8 @@
     <script>
         // Copy to clipboard functional implementation
         function copyEmailToClipboard() {
-            const emailText = "connect@shuvam-gautam.com.np";
+            const emailText = "admin@shuvam-gautam.com.np";
             
-            // Fallback clipboard method as per requirements
             const tempInput = document.createElement("input");
             tempInput.value = emailText;
             document.body.appendChild(tempInput);
@@ -359,7 +528,7 @@
             const imageGlow = document.getElementById("image-glow");
             const formHeaderDot = document.getElementById("form-header-dot");
             const emailIcon = document.getElementById("email-icon-container");
-            const projectBadge = document.getElementById("project-badge");
+            const projectBadges = document.querySelectorAll(".project-badge");
 
             // Reset buttons design
             document.getElementById("btn-accent-indigo").classList.remove("ring-2", "ring-indigo-500", "ring-offset-2");
@@ -370,30 +539,36 @@
             if (color === 'indigo') {
                 document.getElementById("btn-accent-indigo").classList.add("ring-2", "ring-indigo-500", "ring-offset-2");
                 card.className = card.className.replace(/glow-\w+/, 'glow-indigo');
-                role.className = "text-indigo-400 font-medium mb-4 text-sm md:text-base tracking-wide";
+                role.className = "text-indigo-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10";
                 submitBtn.className = submitBtn.className.replace(/bg-\w+-600 hover:bg-\w+-500 shadow-\w+-600\/20 hover:shadow-\w+-500\/30/, 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/20 hover:shadow-indigo-500/30');
                 imageGlow.className = imageGlow.className.replace(/from-\w+-500/, 'from-indigo-500');
                 formHeaderDot.className = "w-2 h-2 rounded-full bg-indigo-500";
                 emailIcon.className = emailIcon.className.replace(/text-\w+-400 bg-\w+-500\/10/, 'text-indigo-400 bg-indigo-500/10');
-                projectBadge.className = "text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full";
+                projectBadges.forEach(badge => {
+                    badge.className = "text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge";
+                });
             } else if (color === 'emerald') {
                 document.getElementById("btn-accent-emerald").classList.add("ring-2", "ring-emerald-500", "ring-offset-2");
                 card.className = card.className.replace(/glow-\w+/, 'glow-emerald');
-                role.className = "text-emerald-400 font-medium mb-4 text-sm md:text-base tracking-wide";
+                role.className = "text-emerald-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10";
                 submitBtn.className = submitBtn.className.replace(/bg-\w+-600 hover:bg-\w+-500 shadow-\w+-600\/20 hover:shadow-\w+-500\/30/, 'bg-emerald-600 hover:bg-emerald-500 shadow-emerald-600/20 hover:shadow-emerald-500/30');
                 imageGlow.className = imageGlow.className.replace(/from-\w+-500/, 'from-emerald-500');
                 formHeaderDot.className = "w-2 h-2 rounded-full bg-emerald-500";
                 emailIcon.className = emailIcon.className.replace(/text-\w+-400 bg-\w+-500\/10/, 'text-emerald-400 bg-emerald-500/10');
-                projectBadge.className = "text-[10px] bg-emerald-500/20 text-emerald-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full";
+                projectBadges.forEach(badge => {
+                    badge.className = "text-[10px] bg-emerald-500/20 text-emerald-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge";
+                });
             } else if (color === 'rose') {
                 document.getElementById("btn-accent-rose").classList.add("ring-2", "ring-rose-500", "ring-offset-2");
                 card.className = card.className.replace(/glow-\w+/, 'glow-rose');
-                role.className = "text-rose-400 font-medium mb-4 text-sm md:text-base tracking-wide";
+                role.className = "text-rose-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10";
                 submitBtn.className = submitBtn.className.replace(/bg-\w+-600 hover:bg-\w+-500 shadow-\w+-600\/20 hover:shadow-\w+-500\/30/, 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/20 hover:shadow-rose-500/30');
                 imageGlow.className = imageGlow.className.replace(/from-\w+-500/, 'from-rose-500');
                 formHeaderDot.className = "w-2 h-2 rounded-full bg-rose-500";
                 emailIcon.className = emailIcon.className.replace(/text-\w+-400 bg-\w+-500\/10/, 'text-rose-400 bg-rose-500/10');
-                projectBadge.className = "text-[10px] bg-rose-500/20 text-rose-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full";
+                projectBadges.forEach(badge => {
+                    badge.className = "text-[10px] bg-rose-500/20 text-rose-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge";
+                });
             }
         }
 
@@ -410,23 +585,105 @@
             }
         }
 
-        // Submit form trigger
+        // 3D Tilt Effect Controller
+        document.querySelectorAll('.tilt-element').forEach(element => {
+            element.addEventListener('mousemove', (e) => {
+                const rect = element.getBoundingClientRect();
+                const x = e.clientX - rect.left; // x coordinate within element
+                const y = e.clientY - rect.top;  // y coordinate within element
+                
+                // Get center relative points
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                // Calculate rotational angle (max 10 degrees)
+                const rotateX = ((centerY - y) / centerY) * 10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+
+            element.addEventListener('mouseleave', () => {
+                element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+
+        // Submit form trigger to direct email action
         function handleFormSubmit(e) {
             e.preventDefault();
+            
+            const submitBtn = document.getElementById("form-submit-btn");
+            const btnText = document.getElementById("btn-text");
+            const btnSpinner = document.getElementById("btn-spinner");
+            const toast = document.getElementById("success-toast");
+            const paperPlane = document.getElementById("paper-plane");
+            const successRing = document.getElementById("success-ring");
+            const toastTitle = document.getElementById("toast-title");
+            const toastDesc = document.getElementById("toast-desc");
+
             const name = document.getElementById("form-name").value;
             const email = document.getElementById("form-email").value;
             const message = document.getElementById("form-message").value;
 
-            // Generate deep linking mailto standard query
-            const mailtoUrl = `mailto:connect@shuvam-gautam.com.np?subject=Connection request from ${encodeURIComponent(name)}&body=Hi Shuvam,%0D%0D${encodeURIComponent(message)}%0D%0D---%0DContact: ${encodeURIComponent(email)}`;
-            
-            document.getElementById("mailto-direct").href = mailtoUrl;
+            // Trigger loading state animations
+            btnText.classList.add("hidden");
+            btnSpinner.classList.remove("hidden");
+            submitBtn.setAttribute("disabled", "true");
 
-            // Display feedback toast
-            const toast = document.getElementById("success-toast");
+            // Setup dynamic Toast Modal
             toast.classList.remove("hidden");
+            paperPlane.classList.remove("plane-fly");
+            paperPlane.classList.remove("hidden");
+            successRing.classList.add("hidden");
+            successRing.classList.remove("scale-100");
+            toastTitle.innerText = "Transmitting message...";
+            toastDesc.innerText = "Routing direct secure packets to admin@shuvam-gautam.com.np";
+
+            // Submit using Ajax FormSubmit gateway
+            fetch("https://formsubmit.co/ajax/admin@shuvam-gautam.com.np", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    Name: name,
+                    Email: email,
+                    Message: message,
+                    _subject: `New Connection request from ${name}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Play fly away animation
+                setTimeout(() => {
+                    paperPlane.classList.add("plane-fly");
+                    
+                    setTimeout(() => {
+                        paperPlane.classList.add("hidden");
+                        successRing.classList.remove("hidden");
+                        setTimeout(() => {
+                            successRing.classList.add("scale-100");
+                            toastTitle.innerText = "Message Delivered!";
+                            toastDesc.innerText = "Successfully sent directly to Shuvam Gautam's inbox.";
+                        }, 50);
+                    }, 1200);
+                }, 400);
+            })
+            .catch(error => {
+                console.error("Transmission Error:", error);
+                toastTitle.innerText = "Error Sending Message";
+                toastDesc.innerText = "Could not send directly. Please click 'Back' to retry or copy Shuvam's email directly.";
+            })
+            .finally(() => {
+                // Restore Button State
+                btnText.classList.remove("hidden");
+                btnSpinner.classList.add("hidden");
+                submitBtn.removeAttribute("disabled");
+            });
         }
 
+        // Reset contact form fields
         function resetContactForm() {
             document.getElementById("contact-form").reset();
             document.getElementById("success-toast").classList.add("hidden");
