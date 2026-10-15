@@ -1,710 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connect with Shuvam Gautam</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            50: '#eef2ff',
-                            100: '#e0e7ff',
-                            500: '#6366f1',
-                            600: '#4f46e5',
-                            700: '#4338ca',
-                            900: '#312e81',
-                        }
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float-slow': 'float 8s ease-in-out infinite',
-                        'float-delayed': 'float-delayed 11s ease-in-out infinite',
-                        'spin-slow': 'spin 20s linear infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Base Glass Effects */
-        .glass-panel {
-            background: rgba(10, 15, 30, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .glass-button {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            transform-style: preserve-3d;
-        }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shuvam Gautam – Digital Creator & Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14173A; --paper:#F5F6FC; --card:#FFFFFF; --blue:#2B3BFF; --pink:#FF4F9A; --sun:#FFD23F; --muted:#585C85; --line:#D9DCF0;
+  --display:"Bricolage Grotesque","Arial Black",Impact,sans-serif; --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#F1F2FF;--paper:#0C0F2B;--card:#161A44;--muted:#A3A7D6;--line:#2A2F66}}
+:root[data-theme="dark"]{--ink:#F1F2FF;--paper:#0C0F2B;--card:#161A44;--muted:#A3A7D6;--line:#2A2F66}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 
-        /* 3D Depth Classes */
-        .perspective-1000 {
-            perspective: 1000px;
-        }
-        .preserve-3d {
-            transform-style: preserve-3d;
-        }
-        .translate-z-10 {
-            transform: translateZ(10px);
-        }
-        .translate-z-20 {
-            transform: translateZ(20px);
-        }
-        .translate-z-30 {
-            transform: translateZ(30px);
-        }
+/* hero */
+.hero{background:var(--blue);color:#fff;position:relative;overflow:hidden;padding:clamp(1.5rem,4vw,3rem) clamp(1.25rem,5vw,4rem) 0}
+.top{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-weight:600}
+.chip{background:#fff;color:#14173A;border-radius:999px;padding:.35rem .9rem;font-size:.9rem}
+.chip i{display:inline-block;width:.6rem;height:.6rem;border-radius:50%;background:#1DB954;margin-right:.5rem}
+.name{font-family:var(--display);font-weight:800;line-height:.82;letter-spacing:-.045em;margin:clamp(3rem,10vw,7rem) 0 0;font-size:clamp(4.2rem,21vw,19rem);text-transform:lowercase}
+.name span{display:block;white-space:nowrap}
+.name .ch{display:inline-block;animation:drop .7s cubic-bezier(.2,1.3,.4,1) both;animation-delay:calc(var(--i)*45ms)}
+@keyframes drop{from{transform:translateY(-110%) rotate(-8deg);opacity:0}}
+.sticker{position:absolute;font-family:var(--display);font-weight:800;border-radius:999px;padding:.7rem 1.3rem;font-size:clamp(1rem,2.2vw,1.6rem);transform:rotate(var(--r));box-shadow:0 6px 0 rgba(0,0,0,.25)}
+.s1{--r:-9deg;background:var(--sun);color:#14173A;right:7%;top:26%}
+.s2{--r:6deg;background:var(--pink);color:#fff;right:22%;top:58%}
+.tag{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;padding:2rem 0 2.5rem}
+.tag p{margin:0;max-width:16ch;font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,4.2vw,3.2rem);line-height:1.1;letter-spacing:-.03em}
+.swap{display:inline-block;background:var(--sun);color:#14173A;padding:0 .3em;border-radius:.3em;transform:rotate(-2deg)}
+.sticker{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.sticker:active{cursor:grabbing}
+.hint{position:absolute;left:clamp(1.25rem,5vw,4rem);top:6.2rem;font-weight:600;font-size:.9rem;opacity:.85}
+.tag a{background:var(--sun);color:#14173A;font-weight:600;text-decoration:none;padding:.9rem 1.6rem;border-radius:999px;transition:transform .15s}
+.tag a:hover{transform:rotate(-3deg) scale(1.05)}
 
-        /* Tilt Element Transition Smoothness */
-        .tilt-element {
-            transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.2s ease;
-            will-change: transform;
-        }
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,3vw,2.2rem);padding:.8rem 0}
+.marquee div{display:inline-block;padding-left:100%;animation:scroll 28s linear infinite}
+@keyframes scroll{to{transform:translateX(-100%)}}
 
-        /* Custom Glowing effects */
-        .glow-indigo {
-            box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.35);
-        }
-        .glow-indigo:hover {
-            box-shadow: 0 0 50px -5px rgba(99, 102, 241, 0.5);
-        }
-        .glow-emerald {
-            box-shadow: 0 0 40px -10px rgba(16, 185, 129, 0.35);
-        }
-        .glow-emerald:hover {
-            box-shadow: 0 0 50px -5px rgba(16, 185, 129, 0.5);
-        }
-        .glow-rose {
-            box-shadow: 0 0 40px -10px rgba(244, 63, 94, 0.35);
-        }
-        .glow-rose:hover {
-            box-shadow: 0 0 50px -5px rgba(244, 63, 94, 0.5);
-        }
+section{padding:clamp(3.5rem,9vw,7rem) clamp(1.25rem,5vw,4rem)}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,7vw,5.5rem);line-height:.95;letter-spacing:-.035em;margin:0 0 2.5rem}
+.wrap{max-width:1180px;margin:0 auto}
 
-        /* Floating Animation Keyframes */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
-        }
-        @keyframes float-delayed {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(15px) rotate(-4deg); }
-        }
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:start}
+.about p{margin:0 0 1.2rem;max-width:60ch}
+.about .big{font-family:var(--display);font-weight:400;font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.2;letter-spacing:-.01em}
+.skills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.6rem}
+.skills li{list-style:none;border:2px solid var(--ink);border-radius:999px;padding:.35rem 1rem;font-weight:600}
+.skills{padding:0}
 
-        /* Image Filters */
-        .filter-vivid {
-            filter: contrast(1.08) saturate(1.1) brightness(1.02);
-        }
-        .filter-mono {
-            filter: grayscale(1) contrast(1.25);
-        }
-        .filter-duotone {
-            filter: grayscale(0.9) sepia(0.15) hue-rotate(200deg) saturate(1.7) contrast(1.15);
-        }
+/* work */
+.work{background:var(--card)}
+.proj{display:grid;grid-template-columns:1fr 1.1fr;border-radius:2rem;overflow:hidden;text-decoration:none;margin-bottom:1.5rem;color:#14173A;min-height:22rem;transition:transform .25s}
+.proj:hover{transform:translateY(-6px)}
+.proj .art{display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:clamp(5rem,14vw,11rem);letter-spacing:-.06em;line-height:1}
+.proj .txt{padding:clamp(1.5rem,4vw,3rem);display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
+.proj h3{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1;letter-spacing:-.03em;margin:0 0 .8rem}
+.proj p{margin:0;max-width:44ch}
+.proj .go{font-weight:600;border-bottom:3px solid currentColor;align-self:flex-start}
+.p1{background:var(--sun)} .p1 .art{background:var(--pink);color:#fff}
+.p2{background:#B9F0D6} .p2 .art{background:var(--blue);color:#fff}
 
-        /* Staggered Entrance Animations */
-        @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes slideInFromRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* services */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
+.tile{border-radius:1.5rem;padding:1.6rem;min-height:14rem;display:flex;flex-direction:column;justify-content:space-between;color:#14173A}
+.tile h3{font-family:var(--display);font-weight:800;font-size:1.9rem;line-height:1;letter-spacing:-.03em;margin:0 0 .6rem}
+.tile p{margin:0}
+.tile b{font:800 3rem/1 var(--display);opacity:.35}
+.t1{background:var(--sun)}.t2{background:#B9F0D6}.t3{background:#FFB8D6}.t4{background:#C9CEFF}
+.t1,.t2,.t3,.t4{--ink:#14173A}
+/* process */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:2rem;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;border-top:4px solid var(--ink);padding-top:1rem}
+.steps li::before{content:counter(s);font:800 3.5rem/1 var(--display);color:var(--blue)}
+.steps h3{font-family:var(--display);font-weight:800;font-size:1.6rem;margin:.4rem 0}
+.steps p{margin:0;color:var(--muted)}
+/* toggle + message */
+.tog{font:600 .9rem var(--body);background:transparent;color:#fff;border:2px solid #fff;border-radius:999px;padding:.3rem .9rem;cursor:pointer}
+.msg{background:#14173A;color:#fff;border-radius:1.5rem;padding:clamp(1.2rem,3vw,2rem);margin-top:2.5rem;display:grid;gap:.8rem;max-width:44rem}
+.msg h3{font-family:var(--display);font-weight:800;font-size:1.8rem;margin:0}
+.msg label{font-weight:600;font-size:.95rem}
+.msg input,.msg textarea{width:100%;font:inherit;color:#14173A;background:#fff;border:0;border-radius:.8rem;padding:.7rem .9rem;margin-top:.3rem}
+.msg textarea{min-height:7rem;resize:vertical}
+.msg .row{display:flex;gap:.6rem;flex-wrap:wrap}
+.msg button{font:600 1rem var(--body);border:0;border-radius:999px;padding:.8rem 1.4rem;cursor:pointer;background:var(--sun);color:#14173A}
+.msg button.alt{background:#fff}
+.msg .ok{min-height:1.4rem;margin:0;color:var(--sun)}
+/* contact */
+.contact{background:var(--pink);color:#14173A}
+.links{display:flex;flex-direction:column}
+.links a{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;text-decoration:none;border-top:3px solid #14173A;padding:1.1rem 0;font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,5vw,3.8rem);letter-spacing:-.03em;line-height:1.05;transition:padding .2s}
+.links a:last-child{border-bottom:3px solid #14173A}
+.links a:hover{padding-left:1.2rem;padding-right:1.2rem;background:#14173A;color:var(--pink)}
+.links small{font:600 1rem var(--body);letter-spacing:0;text-align:right;overflow-wrap:anywhere}
+.contact .note{margin:1.5rem 0 0;max-width:52ch}
+footer{padding:2rem clamp(1.25rem,5vw,4rem);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:var(--muted);font-size:.95rem}
 
-        .animate-fade-in-up {
-            opacity: 0;
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Left/Right social block entrance classes */
-        .animate-slide-left {
-            opacity: 0;
-            animation: slideInFromLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        .animate-slide-right {
-            opacity: 0;
-            animation: slideInFromRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        /* Flying Paper Plane Keyframe */
-        @keyframes flyAway {
-            0% {
-                transform: translate(0, 0) scale(1) rotate(0deg);
-                opacity: 1;
-            }
-            30% {
-                transform: translate(-20px, 10px) scale(0.9) rotate(-10deg);
-            }
-            100% {
-                transform: translate(350px, -200px) scale(0.4) rotate(15deg);
-                opacity: 0;
-            }
-        }
-        .plane-fly {
-            animation: flyAway 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-        }
-    </style>
+@media (max-width:760px){
+  .about,.proj{grid-template-columns:1fr}
+  .proj .art{min-height:12rem}
+  .s2{right:8%;top:48%} .s1{top:20%}
+}
+@media (prefers-reduced-motion:reduce){
+  .name .ch{animation:none} .marquee div{animation:none;padding-left:0} html{scroll-behavior:auto}
+  .proj,.tag a,.links a{transition:none}
+}
+</style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between overflow-x-hidden relative selection:bg-indigo-500 selection:text-white pb-6">
+<body>
 
-    <!-- 3D Geometric Floating background shapes -->
-    <div class="absolute top-[15%] left-[5%] w-24 h-24 bg-gradient-to-tr from-indigo-500/10 to-transparent rounded-2xl animate-float-slow blur-sm pointer-events-none border border-indigo-500/10"></div>
-    <div class="absolute bottom-[20%] right-[5%] w-32 h-32 bg-gradient-to-br from-purple-500/10 to-transparent rounded-full animate-float-delayed blur-sm pointer-events-none border border-purple-500/10"></div>
-    <div class="absolute top-[45%] right-[15%] w-16 h-16 bg-gradient-to-tr from-rose-500/5 to-transparent rounded-lg animate-spin-slow blur-[2px] pointer-events-none border border-rose-500/10"></div>
+<header class="hero">
+  <div class="top">
+    <span>Shuvam Gautam <button class="tog" id="tog" type="button" aria-label="Switch light or dark theme">Light / dark</button></span>
+    <span class="chip"><i></i>Open to collaborations · <span id="clock">Nepal</span></span>
+  </div>
+  <h1 class="name" aria-label="Shuvam Gautam">
+    <span aria-hidden="true" data-t="shuvam"></span>
+    <span aria-hidden="true" data-t="gautam"></span>
+  </h1>
+  <div class="hint">Psst. Drag the stickers.</div>
+  <div class="sticker s1">designer</div>
+  <div class="sticker s2">creator</div>
+  <div class="tag">
+    <p>I make things that make you <span class="swap" id="swap">stop scrolling</span></p>
+    <a href="#work">See what I've built</a>
+  </div>
+</header>
 
-    <!-- Glowing Background blobs -->
-    <div class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-indigo-900/20 blur-[120px] pointer-events-none animate-pulse-slow"></div>
-    <div class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-violet-950/20 blur-[120px] pointer-events-none animate-pulse-slow" style="animation-delay: 2s;"></div>
+<div class="marquee" aria-hidden="true"><div>Graphic design · Social content · AI tools · Blogging · Web projects · Graphic design · Social content · AI tools · Blogging · Web projects ·&nbsp;</div></div>
 
-    <!-- Header / Navigation -->
-    <header class="w-full max-w-6xl mx-auto px-6 py-5 flex justify-between items-center z-10 animate-fade-in-up" style="animation-delay: 0.1s;">
-        <div class="flex items-center gap-2">
-            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="text-[10px] font-bold tracking-widest text-slate-400 uppercase">Available for collaboration</span>
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <h2>Hi, I'm Shuvam.</h2>
+      <p class="big">I design, write and build online. Some days it's a post, some days it's a whole website.</p>
+    </div>
+    <div>
+      <p>I'm a digital creator and designer based in Nepal. I share creative work on Instagram and TikTok, write about tech and design on my own blog, and build small web projects that solve everyday problems.</p>
+      <p>I like ideas that start simple and get useful fast, like an AI helper that explains homework in plain language.</p>
+      <ul class="skills">
+        <li>Design</li><li>Content creation</li><li>Writing</li><li>Web projects</li><li>AI tools</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2>What we can make together</h2>
+    <div class="grid">
+      <div class="tile t1"><div><h3>Graphic design</h3><p>Posters, covers, banners and visuals with a clear idea behind them.</p></div></div>
+      <div class="tile t2"><div><h3>Social content</h3><p>Posts, reels and short videos made for Instagram and TikTok.</p></div></div>
+      <div class="tile t3"><div><h3>Simple websites</h3><p>Clean, fast pages for people, projects and small ideas.</p></div></div>
+      <div class="tile t4"><div><h3>Writing</h3><p>Articles and guides about tech and design in plain language.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="work" class="work">
+  <div class="wrap">
+    <h2>Things I've built</h2>
+    <a class="proj p1" href="https://ai.shuvam-gautam.com.np/" target="_blank" rel="noopener">
+      <div class="art" aria-hidden="true">AI</div>
+      <div class="txt">
+        <div>
+          <h3>AI Daju</h3>
+          <p>A friendly, local AI companion that answers questions, explains tricky homework topics, brainstorms ideas and chats any time.</p>
         </div>
-        <!-- Theme accent picker -->
-        <div class="flex items-center gap-3 glass-panel px-3 py-1.5 rounded-full text-xs">
-            <span class="text-slate-400 text-[10px] font-bold tracking-wide uppercase">Accent:</span>
-            <div class="flex gap-1.5">
-                <button onclick="setAccent('indigo')" class="w-3.5 h-3.5 rounded-full bg-indigo-500 ring-2 ring-indigo-500 ring-offset-2 ring-offset-slate-950 transition-all focus:outline-none cursor-pointer" id="btn-accent-indigo" title="Indigo Theme"></button>
-                <button onclick="setAccent('emerald')" class="w-3.5 h-3.5 rounded-full bg-emerald-500 ring-offset-slate-950 transition-all focus:outline-none cursor-pointer" id="btn-accent-emerald" title="Emerald Theme"></button>
-                <button onclick="setAccent('rose')" class="w-3.5 h-3.5 rounded-full bg-rose-500 ring-offset-slate-950 transition-all focus:outline-none cursor-pointer" id="btn-accent-rose" title="Rose Theme"></button>
-            </div>
+        <span class="go">Open AI Daju</span>
+      </div>
+    </a>
+    <a class="proj p2" href="https://hpa.com.np" target="_blank" rel="noopener">
+      <div class="art" aria-hidden="true">Hp</div>
+      <div class="txt">
+        <div>
+          <h3>Helpar</h3>
+          <p>My personal blog. Articles, creative ideas and practical guides about tech and design.</p>
         </div>
-    </header>
+        <span class="go">Read Helpar</span>
+      </div>
+    </a>
+  </div>
+</section>
 
-    <!-- Main Content Area -->
-    <main class="w-full max-w-5xl mx-auto px-4 md:px-6 py-4 flex-grow flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 z-10">
-        
-        <!-- Left Side: Profile Card (with interactive 3D Perspective) -->
-        <section class="w-full lg:w-5/12 flex flex-col items-center animate-fade-in-up" style="animation-delay: 0.2s;">
-            <div class="w-full glass-panel rounded-3xl p-6 md:p-8 flex flex-col items-center text-center relative overflow-hidden glow-indigo transition-all duration-500 tilt-element preserve-3d" id="profile-card">
-                
-                <!-- Background visual grid -->
-                <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(99,102,241,0.12),rgba(255,255,255,0))] pointer-events-none"></div>
-                
-                <!-- Profile Image Container with 3D Pop-out Glow & Filters -->
-                <div class="relative group mb-6 preserve-3d translate-z-30">
-                    <div class="absolute -inset-1.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 opacity-60 blur-md group-hover:opacity-100 transition duration-500" id="image-glow"></div>
-                    <div class="relative w-52 h-64 md:w-56 md:h-72 rounded-2xl overflow-hidden bg-slate-900 border border-slate-800/80">
-                        <img 
-                            id="profile-img"
-                            src="https://drive.google.com/thumbnail?id=1VPo204IdbLOZwpcQ5RYecgPjl1n_C4hz&sz=w1000" 
-                            alt="Shuvam Gautam" 
-                            class="w-full h-full object-cover object-center filter-vivid transition-all duration-300 transform group-hover:scale-105"
-                            onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600'"
-                        >
-                        <!-- Floating Image Style Controls -->
-                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 bg-slate-950/80 backdrop-blur-md px-2 py-1 rounded-full flex gap-2 border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <button onclick="setImageFilter('vivid')" class="text-[10px] font-bold px-1.5 py-0.5 rounded text-indigo-400 hover:text-white transition">Vivid</button>
-                            <button onclick="setImageFilter('mono')" class="text-[10px] font-bold px-1.5 py-0.5 rounded text-indigo-400 hover:text-white transition">Mono</button>
-                            <button onclick="setImageFilter('duotone')" class="text-[10px] font-bold px-1.5 py-0.5 rounded text-indigo-400 hover:text-white transition">Duo</button>
-                        </div>
-                    </div>
-                </div>
+<section id="process">
+  <div class="wrap">
+    <h2>How a project goes</h2>
+    <ol class="steps">
+      <li><h3>Talk</h3><p>You tell me the idea, the goal and who it's for.</p></li>
+      <li><h3>Sketch</h3><p>I send rough directions so we can pick one early.</p></li>
+      <li><h3>Make</h3><p>I build it and share progress, so there are no surprises.</p></li>
+      <li><h3>Share</h3><p>We polish it, publish it and put it in front of people.</p></li>
+    </ol>
+  </div>
+</section>
 
-                <!-- Text Info -->
-                <h1 class="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400 mb-1 translate-z-20">
-                    Shuvam Gautam
-                </h1>
-                <p class="text-indigo-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10" id="profile-role">
-                    Digital Creator & Designer
-                </p>
-                <p class="text-slate-400 text-sm max-w-sm leading-relaxed mb-6 translate-z-10">
-                    Welcome to my network gateway. Feel free to explore my profiles below or reach out directly for collaborations, inquiries, or just to say hello!
-                </p>
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Say hello.</h2>
+    <nav class="links" aria-label="Social profiles">
+      <a href="https://www.instagram.com/shuvamgautamm" target="_blank" rel="noopener">Instagram <small>@shuvamgautamm</small></a>
+      <a href="https://www.tiktok.com/@shuvamgautammm" target="_blank" rel="noopener">TikTok <small>@shuvamgautammm</small></a>
+      <a href="https://www.facebook.com/shuvamgautam2066" target="_blank" rel="noopener">Facebook <small>shuvamgautam2066</small></a>
+    </nav>
+    <p class="note">For collaborations or questions, send a message on any of these.</p>
+    <div class="msg">
+      <h3>Write your message here</h3>
+      <label>Your name<input id="mn" autocomplete="name"></label>
+      <label>What would you like to make?<textarea id="mm"></textarea></label>
+      <div class="row">
+        <button type="button" id="ig">Copy and open Instagram</button>
+        <button type="button" class="alt" id="cp">Copy message</button>
+      </div>
+      <p class="ok" id="ok" role="status"></p>
+    </div>
+  </div>
+</section>
 
-                <!-- Nepal Local Time Widget -->
-                <div class="w-full border-t border-slate-800/80 pt-5 flex justify-between items-center text-xs text-slate-500 translate-z-10">
-                    <div class="flex items-center gap-1.5">
-                        <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                        <span>Nepal Standard Time</span>
-                    </div>
-                    <div class="flex items-center gap-2 font-mono font-bold text-slate-300" id="local-time">
-                        00:00:00 PM
-                    </div>
-                </div>
+<footer><span>© 2026 Shuvam Gautam</span><span>Made in Nepal</span></footer>
 
-            </div>
-        </section>
-
-        <!-- Right Side: Links, Projects & Contact Form -->
-        <section class="w-full lg:w-7/12 flex flex-col gap-6">
-            
-            <div class="flex flex-col gap-3">
-                <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase flex items-center gap-2 px-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                    Find me on
-                </h2>
-                
-                <!-- Grid of Social Channels with Staggered Left/Right Animations and Hover Sliders -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    
-                    <!-- Facebook Card (Slides from Left) -->
-                    <a href="https://www.facebook.com/shuvamgautam2066" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group tilt-element animate-slide-left hover:translate-x-1.5 transition-transform" style="animation-delay: 0.1s;">
-                        <div class="p-3 rounded-xl bg-blue-600/10 text-blue-500 group-hover:bg-blue-600 group-hover:text-white transition duration-300 translate-z-10">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
-                            </svg>
-                        </div>
-                        <div class="translate-z-20">
-                            <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">Facebook</h2>
-                            <p class="text-xs text-slate-500">shuvamgautam2066</p>
-                        </div>
-                        <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1 translate-z-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-
-                    <!-- Instagram Card (Slides from Right) -->
-                    <a href="https://www.instagram.com/shuvamgautamm" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group tilt-element animate-slide-right hover:-translate-x-1.5 transition-transform" style="animation-delay: 0.2s;">
-                        <div class="p-3 rounded-xl bg-pink-600/10 text-pink-500 group-hover:bg-gradient-to-tr group-hover:from-amber-500 group-hover:via-pink-600 group-hover:to-purple-600 group-hover:text-white transition duration-300 translate-z-10">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                            </svg>
-                        </div>
-                        <div class="translate-z-20">
-                            <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">Instagram</h2>
-                            <p class="text-xs text-slate-500">@shuvamgautamm</p>
-                        </div>
-                        <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1 translate-z-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-
-                    <!-- TikTok Card (Slides from Left) -->
-                    <a href="https://www.tiktok.com/@shuvamgautammm" target="_blank" rel="noopener noreferrer" class="glass-button rounded-2xl p-5 flex items-center gap-4 group tilt-element animate-slide-left hover:translate-x-1.5 transition-transform" style="animation-delay: 0.3s;">
-                        <div class="p-3 rounded-xl bg-slate-800 text-slate-100 group-hover:bg-slate-50 group-hover:text-slate-950 transition duration-300 translate-z-10">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.63 4.18 1.13 1.2 2.69 1.93 4.31 2.05v3.74c-1.77-.14-3.48-.89-4.78-2.12-.13-.12-.25-.26-.37-.4-.06.78-.14 1.56-.14 2.34-.04 4.09-.92 8.35-4.57 10.42-2.58 1.5-6.05 1.55-8.57-.1-2.99-1.87-4.14-5.91-2.61-9.17 1.14-2.54 3.73-4.32 6.54-4.39 1.15-.05 2.3.17 3.36.64V.02zm-1.89 9.94c-1.57-.03-3.15.93-3.75 2.39-.7 1.65-.13 3.75 1.34 4.67.92.59 2.08.68 3.08.23 1.25-.53 2.02-1.9 1.95-3.26-.01-1.3-.01-2.6 0-3.9-.87-.04-1.74-.08-2.62-.13z"/>
-                            </svg>
-                        </div>
-                        <div class="translate-z-20">
-                            <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">TikTok</h2>
-                            <p class="text-xs text-slate-500">@shuvamgautammm</p>
-                        </div>
-                        <svg class="w-4 h-4 ml-auto text-slate-600 group-hover:text-slate-300 transition-transform transform group-hover:translate-x-1 translate-z-10" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                    </a>
-
-                    <!-- Copy Email Action (Slides from Right) -->
-                    <div onclick="copyEmailToClipboard()" class="glass-button rounded-2xl p-5 flex items-center gap-4 group cursor-pointer relative overflow-hidden tilt-element animate-slide-right hover:-translate-x-1.5 transition-transform" id="email-copy-card" style="animation-delay: 0.4s;">
-                        <div class="p-3 rounded-xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition duration-300 translate-z-10" id="email-icon-container">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                        </div>
-                        <div class="flex-grow min-w-0 translate-z-20">
-                            <div class="flex items-center gap-2">
-                                <h2 class="font-bold text-slate-200 text-sm group-hover:text-white">E-mail</h2>
-                                <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded font-mono group-hover:bg-slate-700 transition" id="copy-badge">Copy</span>
-                            </div>
-                            <p class="text-xs text-slate-500 truncate">admin@shuvam-gautam.com.np</p>
-                        </div>
-                        <!-- Direct mailto click link icon -->
-                        <a href="mailto:admin@shuvam-gautam.com.np" class="p-1 rounded hover:bg-white/10 text-slate-500 hover:text-slate-300 transition translate-z-10" title="Send email directly" onclick="event.stopPropagation()">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Projects Showcase Section -->
-            <div class="flex flex-col gap-4">
-                <h2 class="text-sm font-bold tracking-wider text-slate-400 uppercase flex items-center gap-2 px-1 animate-fade-in-up" style="animation-delay: 0.45s;">
-                    <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                    My Projects
-                </h2>
-
-                <div class="flex flex-col gap-4">
-                    <!-- Project 1: AI Daju -->
-                    <a href="https://ai.shuvam-gautam.com.np/" target="_blank" rel="noopener noreferrer" class="glass-button rounded-3xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group relative overflow-hidden tilt-element animate-fade-in-up" style="animation-delay: 0.5s;">
-                        <!-- Hover Glow background overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-violet-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                        
-                        <div class="p-4 rounded-2xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition duration-300 shrink-0 translate-z-10">
-                            <!-- Futuristic AI/Sparkles Icon SVG -->
-                            <svg class="w-8 h-8 animate-pulse-slow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l-.813-5.096L3 15l5.096-.813L9 9l.813 5.096L15 15l-5.187.904zM18 5.25L17.25 7l-.75-1.75L14.75 4.5l1.75-.75.75-1.75.75 1.75 1.75.75-1.75.75zM22 10.75l-.75 1.75-.75-1.75L18.75 10l1.75-.75.75-1.75.75 1.75 1.75.75-1.75.75z" />
-                            </svg>
-                        </div>
-                        
-                        <div class="flex-grow translate-z-20">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge">Friendly AI Assistant</span>
-                                <span class="text-[10px] bg-slate-800 text-slate-400 font-mono px-2 py-0.5 rounded-full">ai.shuvam-gautam.com.np</span>
-                            </div>
-                            <h2 class="text-xl font-bold text-slate-100 group-hover:text-white transition">AI Daju</h2>
-                            <p class="text-xs text-slate-400 leading-relaxed mt-1">Your helpful, local AI companion built to answer questions, explain complex homework topics, brainstorm ideas, and chat anytime!</p>
-                        </div>
-                        
-                        <div class="self-end sm:self-center ml-auto text-slate-500 group-hover:text-slate-200 transition translate-z-10">
-                            <svg class="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </div>
-                    </a>
-
-                    <!-- Project 2: Helpar Blog -->
-                    <a href="https://hpa.com.np" target="_blank" rel="noopener noreferrer" class="glass-button rounded-3xl p-6 flex flex-col sm:flex-row items-start sm:items-center gap-5 group relative overflow-hidden tilt-element animate-fade-in-up" style="animation-delay: 0.55s;">
-                        <!-- Hover Glow background overlay -->
-                        <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                        
-                        <div class="p-4 rounded-2xl bg-indigo-500/10 text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition duration-300 shrink-0 translate-z-10">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                            </svg>
-                        </div>
-                        
-                        <div class="flex-grow translate-z-20">
-                            <div class="flex items-center gap-2 mb-1">
-                                <span class="text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge">Personal Blog</span>
-                                <span class="text-[10px] bg-slate-800 text-slate-400 font-mono px-2 py-0.5 rounded-full">hpa.com.np</span>
-                            </div>
-                            <h2 class="text-xl font-bold text-slate-100 group-hover:text-white transition">Helpar</h2>
-                            <p class="text-xs text-slate-400 leading-relaxed mt-1">Explore my personal blog project where I write articles, share creative ideas, and publish interesting guides about tech and design.</p>
-                        </div>
-                        
-                        <div class="self-end sm:self-center ml-auto text-slate-500 group-hover:text-slate-200 transition translate-z-10">
-                            <svg class="w-6 h-6 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Modern Message / Reach Out Form -->
-            <div class="glass-panel rounded-3xl p-6 md:p-8 relative tilt-element animate-fade-in-up" style="animation-delay: 0.6s;">
-                <h3 class="text-xl font-bold mb-1 text-slate-100 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-indigo-500 animate-ping-slow" id="form-header-dot"></span>
-                    Send a Message
-                </h3>
-                <p class="text-xs text-slate-400 mb-6">Type your message below to send it securely directly to Shuvam's inbox.</p>
-
-                <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Your Name</label>
-                            <input 
-                                type="text" 
-                                required 
-                                id="form-name"
-                                placeholder="John Doe" 
-                                class="w-full bg-slate-900/50 border border-slate-800/80 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition duration-300"
-                            >
-                        </div>
-                        <div>
-                            <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Your Email</label>
-                            <input 
-                                type="email" 
-                                required 
-                                id="form-email"
-                                placeholder="john@example.com" 
-                                class="w-full bg-slate-900/50 border border-slate-800/80 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition duration-300"
-                            >
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-2">Message</label>
-                        <textarea 
-                            rows="3" 
-                            required 
-                            id="form-message"
-                            placeholder="Hey Shuvam, let's collaborate on..." 
-                            class="w-full bg-slate-900/50 border border-slate-800/80 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500 text-slate-100 transition duration-300 resize-none"
-                        ></textarea>
-                    </div>
-                    
-                    <button 
-                        type="submit" 
-                        id="form-submit-btn"
-                        class="w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-indigo-600 hover:bg-indigo-500 text-white transition duration-300 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 flex items-center justify-center gap-2 cursor-pointer relative overflow-hidden"
-                    >
-                        <span id="btn-text" class="flex items-center gap-2">
-                            <span>Send Message</span>
-                            <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </span>
-                        <span id="btn-spinner" class="hidden flex items-center gap-2">
-                            <svg class="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            <span>Sending Direct...</span>
-                        </span>
-                    </button>
-                </form>
-
-                <!-- Toast Success Box with Interactive Animations -->
-                <div id="success-toast" class="hidden absolute inset-0 bg-slate-950/95 backdrop-blur-md rounded-3xl flex flex-col items-center justify-center text-center p-6 transition duration-300">
-                    <div class="relative w-24 h-24 flex items-center justify-center mb-4">
-                        <!-- Plane Graphics -->
-                        <svg id="paper-plane" class="w-12 h-12 text-indigo-400 absolute" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
-                        </svg>
-                        <div id="success-ring" class="hidden w-16 h-16 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center border border-emerald-500/20 scale-0 transition-transform duration-500">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        </div>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-1" id="toast-title">Preparing Message...</h4>
-                    <p class="text-xs text-slate-400 max-w-xs mb-6" id="toast-desc">Encrypting secure connection parameters.</p>
-                    <div class="flex gap-3">
-                        <button onclick="resetContactForm()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-semibold transition cursor-pointer">Back</button>
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="w-full max-w-5xl mx-auto px-6 py-6 border-t border-slate-900/60 flex items-center justify-between text-xs text-slate-500 z-10 animate-fade-in-up" style="animation-delay: 0.7s;">
-        <div>&copy; 2026 Shuvam Gautam</div>
-        <div class="flex items-center gap-1.5">
-            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500/80"></span>
-            <span>Secure Connection</span>
-        </div>
-    </footer>
-
-    <!-- Native JavaScript for Features -->
-    <script>
-        // Copy to clipboard functional implementation
-        function copyEmailToClipboard() {
-            const emailText = "admin@shuvam-gautam.com.np";
-            
-            const tempInput = document.createElement("input");
-            tempInput.value = emailText;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-
-            // UI Feedback
-            const badge = document.getElementById("copy-badge");
-            const copyCard = document.getElementById("email-copy-card");
-            
-            badge.innerText = "Copied!";
-            badge.classList.remove("bg-slate-800", "text-slate-400");
-            badge.classList.add("bg-emerald-500/20", "text-emerald-400");
-            copyCard.classList.add("border-emerald-500/30");
-
-            setTimeout(() => {
-                badge.innerText = "Copy";
-                badge.classList.remove("bg-emerald-500/20", "text-emerald-400");
-                badge.classList.add("bg-slate-800", "text-slate-400");
-                copyCard.classList.remove("border-emerald-500/30");
-            }, 2500);
-        }
-
-        // Color Theme Accent Customizer
-        function setAccent(color) {
-            const card = document.getElementById("profile-card");
-            const role = document.getElementById("profile-role");
-            const submitBtn = document.getElementById("form-submit-btn");
-            const imageGlow = document.getElementById("image-glow");
-            const formHeaderDot = document.getElementById("form-header-dot");
-            const emailIcon = document.getElementById("email-icon-container");
-            const projectBadges = document.querySelectorAll(".project-badge");
-
-            // Reset buttons design
-            document.getElementById("btn-accent-indigo").classList.remove("ring-2", "ring-indigo-500", "ring-offset-2");
-            document.getElementById("btn-accent-emerald").classList.remove("ring-2", "ring-emerald-500", "ring-offset-2");
-            document.getElementById("btn-accent-rose").classList.remove("ring-2", "ring-rose-500", "ring-offset-2");
-
-            // Define dynamic mappings
-            if (color === 'indigo') {
-                document.getElementById("btn-accent-indigo").classList.add("ring-2", "ring-indigo-500", "ring-offset-2");
-                card.className = card.className.replace(/glow-\w+/, 'glow-indigo');
-                role.className = "text-indigo-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10";
-                submitBtn.className = submitBtn.className.replace(/bg-\w+-600 hover:bg-\w+-500 shadow-\w+-600\/20 hover:shadow-\w+-500\/30/, 'bg-indigo-600 hover:bg-indigo-500 shadow-indigo-600/20 hover:shadow-indigo-500/30');
-                imageGlow.className = imageGlow.className.replace(/from-\w+-500/, 'from-indigo-500');
-                formHeaderDot.className = "w-2 h-2 rounded-full bg-indigo-500";
-                emailIcon.className = emailIcon.className.replace(/text-\w+-400 bg-\w+-500\/10/, 'text-indigo-400 bg-indigo-500/10');
-                projectBadges.forEach(badge => {
-                    badge.className = "text-[10px] bg-indigo-500/20 text-indigo-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge";
-                });
-            } else if (color === 'emerald') {
-                document.getElementById("btn-accent-emerald").classList.add("ring-2", "ring-emerald-500", "ring-offset-2");
-                card.className = card.className.replace(/glow-\w+/, 'glow-emerald');
-                role.className = "text-emerald-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10";
-                submitBtn.className = submitBtn.className.replace(/bg-\w+-600 hover:bg-\w+-500 shadow-\w+-600\/20 hover:shadow-\w+-500\/30/, 'bg-emerald-600 hover:bg-emerald-500 shadow-emerald-600/20 hover:shadow-emerald-500/30');
-                imageGlow.className = imageGlow.className.replace(/from-\w+-500/, 'from-emerald-500');
-                formHeaderDot.className = "w-2 h-2 rounded-full bg-emerald-500";
-                emailIcon.className = emailIcon.className.replace(/text-\w+-400 bg-\w+-500\/10/, 'text-emerald-400 bg-emerald-500/10');
-                projectBadges.forEach(badge => {
-                    badge.className = "text-[10px] bg-emerald-500/20 text-emerald-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge";
-                });
-            } else if (color === 'rose') {
-                document.getElementById("btn-accent-rose").classList.add("ring-2", "ring-rose-500", "ring-offset-2");
-                card.className = card.className.replace(/glow-\w+/, 'glow-rose');
-                role.className = "text-rose-400 font-medium mb-4 text-sm md:text-base tracking-wide translate-z-10";
-                submitBtn.className = submitBtn.className.replace(/bg-\w+-600 hover:bg-\w+-500 shadow-\w+-600\/20 hover:shadow-\w+-500\/30/, 'bg-rose-600 hover:bg-rose-500 shadow-rose-600/20 hover:shadow-rose-500/30');
-                imageGlow.className = imageGlow.className.replace(/from-\w+-500/, 'from-rose-500');
-                formHeaderDot.className = "w-2 h-2 rounded-full bg-rose-500";
-                emailIcon.className = emailIcon.className.replace(/text-\w+-400 bg-\w+-500\/10/, 'text-rose-400 bg-rose-500/10');
-                projectBadges.forEach(badge => {
-                    badge.className = "text-[10px] bg-rose-500/20 text-rose-300 font-bold tracking-widest uppercase px-2 py-0.5 rounded-full project-badge";
-                });
-            }
-        }
-
-        // Image filter settings
-        function setImageFilter(filter) {
-            const img = document.getElementById("profile-img");
-            img.className = "w-full h-full object-cover object-center transition-all duration-300 transform group-hover:scale-105";
-            if (filter === 'vivid') {
-                img.classList.add("filter-vivid");
-            } else if (filter === 'mono') {
-                img.classList.add("filter-mono");
-            } else if (filter === 'duotone') {
-                img.classList.add("filter-duotone");
-            }
-        }
-
-        // 3D Tilt Effect Controller
-        document.querySelectorAll('.tilt-element').forEach(element => {
-            element.addEventListener('mousemove', (e) => {
-                const rect = element.getBoundingClientRect();
-                const x = e.clientX - rect.left; // x coordinate within element
-                const y = e.clientY - rect.top;  // y coordinate within element
-                
-                // Get center relative points
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                // Calculate rotational angle (max 10 degrees)
-                const rotateX = ((centerY - y) / centerY) * 10;
-                const rotateY = ((x - centerX) / centerX) * 10;
-                
-                element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-
-            element.addEventListener('mouseleave', () => {
-                element.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
-            });
-        });
-
-        // Submit form trigger to direct email action
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById("form-submit-btn");
-            const btnText = document.getElementById("btn-text");
-            const btnSpinner = document.getElementById("btn-spinner");
-            const toast = document.getElementById("success-toast");
-            const paperPlane = document.getElementById("paper-plane");
-            const successRing = document.getElementById("success-ring");
-            const toastTitle = document.getElementById("toast-title");
-            const toastDesc = document.getElementById("toast-desc");
-
-            const name = document.getElementById("form-name").value;
-            const email = document.getElementById("form-email").value;
-            const message = document.getElementById("form-message").value;
-
-            // Trigger loading state animations
-            btnText.classList.add("hidden");
-            btnSpinner.classList.remove("hidden");
-            submitBtn.setAttribute("disabled", "true");
-
-            // Setup dynamic Toast Modal
-            toast.classList.remove("hidden");
-            paperPlane.classList.remove("plane-fly");
-            paperPlane.classList.remove("hidden");
-            successRing.classList.add("hidden");
-            successRing.classList.remove("scale-100");
-            toastTitle.innerText = "Transmitting message...";
-            toastDesc.innerText = "Routing direct secure packets to admin@shuvam-gautam.com.np";
-
-            // Submit using Ajax FormSubmit gateway
-            fetch("https://formsubmit.co/ajax/admin@shuvam-gautam.com.np", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    Name: name,
-                    Email: email,
-                    Message: message,
-                    _subject: `New Connection request from ${name}`
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Play fly away animation
-                setTimeout(() => {
-                    paperPlane.classList.add("plane-fly");
-                    
-                    setTimeout(() => {
-                        paperPlane.classList.add("hidden");
-                        successRing.classList.remove("hidden");
-                        setTimeout(() => {
-                            successRing.classList.add("scale-100");
-                            toastTitle.innerText = "Message Delivered!";
-                            toastDesc.innerText = "Successfully sent directly to Shuvam Gautam's inbox.";
-                        }, 50);
-                    }, 1200);
-                }, 400);
-            })
-            .catch(error => {
-                console.error("Transmission Error:", error);
-                toastTitle.innerText = "Error Sending Message";
-                toastDesc.innerText = "Could not send directly. Please click 'Back' to retry or copy Shuvam's email directly.";
-            })
-            .finally(() => {
-                // Restore Button State
-                btnText.classList.remove("hidden");
-                btnSpinner.classList.add("hidden");
-                submitBtn.removeAttribute("disabled");
-            });
-        }
-
-        // Reset contact form fields
-        function resetContactForm() {
-            document.getElementById("contact-form").reset();
-            document.getElementById("success-toast").classList.add("hidden");
-        }
-
-        // Real-time Nepal Clock
-        function updateNepalTime() {
-            const options = {
-                timeZone: 'Asia/Kathmandu',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            };
-            const formatter = new Intl.DateTimeFormat([], options);
-            document.getElementById("local-time").innerText = formatter.format(new Date());
-        }
-
-        // Active Clock Init on load
-        setInterval(updateNepalTime, 1000);
-        updateNepalTime();
-    </script>
+<script>
+document.querySelectorAll('[data-t]').forEach(function(el,row){
+  el.textContent='';
+  el.dataset.t.split('').forEach(function(c,i){
+    var s=document.createElement('span');s.className='ch';s.textContent=c;
+    s.style.setProperty('--i',i+row*6);el.appendChild(s);
+  });
+});
+function tick(){
+  try{
+    document.getElementById('clock').textContent=new Date().toLocaleTimeString('en-US',{timeZone:'Asia/Kathmandu',hour:'2-digit',minute:'2-digit'})+' NPT';
+  }catch(e){}
+}
+tick();setInterval(tick,30000);
+(function(){
+  var w=['stop scrolling','hit follow','smile','share it','come back'],i=0,el=document.getElementById('swap');
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(function(){i=(i+1)%w.length;el.textContent=w[i]},1800);
+  document.querySelectorAll('.sticker').forEach(function(s){
+    var x=0,y=0,sx,sy,drag=false;
+    s.addEventListener('pointerdown',function(e){drag=true;sx=e.clientX-x;sy=e.clientY-y;s.setPointerCapture(e.pointerId)});
+    s.addEventListener('pointermove',function(e){if(!drag)return;x=e.clientX-sx;y=e.clientY-sy;s.style.translate=x+'px '+y+'px'});
+    s.addEventListener('pointerup',function(){drag=false});
+    s.addEventListener('pointercancel',function(){drag=false});
+  });
+})();
+document.getElementById('tog').onclick=function(){
+  var r=document.documentElement,dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+  r.dataset.theme=dark?'light':'dark';
+};
+function text(){var n=document.getElementById('mn').value.trim(),m=document.getElementById('mm').value.trim();return m?('Hi Shuvam, I am '+(n||'someone who found your portfolio')+'. '+m):''}
+function copy(open){
+  var t=text(),ok=document.getElementById('ok');
+  if(!t){ok.textContent='Write a message first.';return}
+  function done(){ok.textContent=open?'Copied. Paste it into the Instagram chat.':'Copied to your clipboard.';if(open)window.open('https://ig.me/m/shuvamgautamm','_blank','noopener')}
+  try{navigator.clipboard.writeText(t).then(done,function(){ok.textContent='Could not copy. Select the text and copy it yourself.'})}
+  catch(e){ok.textContent='Could not copy. Select the text and copy it yourself.'}
+}
+document.getElementById('ig').onclick=function(){copy(true)};
+document.getElementById('cp').onclick=function(){copy(false)};
+</script>
 </body>
 </html>
